@@ -15,7 +15,6 @@ cur.execute("""CREATE TABLE movies(
         director_name text
     )""")
 
-# we can insert only one record
 '''
 cur.execute("INSERT INTO movies VALUES ('pirates of the caribbean sea', 'Johnny Depp', 'Keira Knightley', '2017', 'Joachim Rønning and Espen Sandberg')")
 cur.execute("INSERT INTO movies VALUES ('alita battle angel', 'Keann Johnson', 'Rosa Salazar', '2019', 'Robert Rodriguez')")
@@ -25,29 +24,21 @@ cur.execute("INSERT INTO movies VALUES ('Hopes and show', 'Chris Morgan', 'rose 
 '''
 
 
-# ###### Update records into the table ######
+# Update records into the table 
 '''cur.execute("""UPDATE movies SET movie_name='Golden Plate'
     WHERE director_name="David leach"
     """) '''
 
-# #### Delete record into the table ####
+# Delete record into the table 
 '''cur.execute("DELETE from movies WHERE director_name='David leach'")'''
-
-# Drop table
-''' cur.execute("DROP TABLE movies") '''
 
 # Query The Database
 cur.execute("SELECT * FROM movies")
-# print(cur.fetchone())
-# print(cur.fetchmany(3))
-# fetch and print all records of the table
 items = cur.fetchall()
 # print(items)
 for item in items:
     print(item)
 
-# commit our command
 conn.commit()
 
-# close our connection
 conn.close()
